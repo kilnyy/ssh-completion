@@ -13,12 +13,13 @@ function __ssh_HUB() {
     local word="${COMP_WORDS[COMP_CWORD]}"
     local last=@`echo ${word} | cut -d@ -f 1`
     local cur=@`echo ${word} | cut -d@ -f 2`
-    local options=`cat ${hosts_path} | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`
+    local know_hosts=`cat ${hosts_path} | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`
     if [ $cur = $last ]
     then
         local cur=${word}
+        local options=${know_hosts}
     else
-        local options= `echo "${options}" | awk 'h="@" {print h$1}'`
+        local options=`echo "${know_hosts}" | awk 'h="@" {print h$1}'`
     fi
     COMPREPLY=( $(compgen -W "${options}" -- ${cur}) )
 }
