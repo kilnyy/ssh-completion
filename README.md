@@ -1,14 +1,16 @@
 ssh-completion
 ========
 
- Bash completion support for ssh.
-
- It provide support for completing hostname from your `~/.ssh/know_hosts` file.
+ Auto-completion support for ssh hostname.
+ 
+ This script reads hostnames from `~/.ssh/known_hosts` and uses them to complete your ssh hostname.
+ 
 
 Getting Start
 --------
- Copy this file to somewhere (e.g. `~/.ssh-completion.sh`).
+ Copy this file `~/.ssh/auto-completion.sh`.
 
- Add the following line to your .bashrc:
+ Add the following line to your ~/.bashrc or ~/.bash_profile:
 
- `source ~/.ssh-completion.sh`
+ `source ~/.ssh/auto-completion.sh`
+
